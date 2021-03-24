@@ -1,0 +1,15 @@
+.wrapper {
+    margin: 0 auto;
+    width: 1200px;
+    display: grid;
+    grid-auto-flow: 60px 1fr;
+    grid-auto-columns: 2fr 10fr;
+    grid-template-areas: 'h h'
+    'n c';
+}
+.content {
+
+    grid-area: c;
+}
+
+
