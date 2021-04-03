@@ -8,6 +8,7 @@ import News from './components/News/News';
 import Profile from './components/Profile/Profile';
 import Setting from './components/Setting/Setting';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 let SomeComponent = () => <News/>
@@ -23,6 +24,7 @@ const App = (props) => {
         <Route exact path={'/news'} component={SomeComponent}/>
         <Route exact path={'/music'} render={() => <Music/>}/>
         <Route exact path={'/setting'} render={() => <Setting/>}/>
+        <Route exact path={'/Users'} render={() =><UsersContainer/> }/>
       </div>
     </div>
   );
