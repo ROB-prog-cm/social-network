@@ -5,10 +5,11 @@ import Header from './components/Header/Header';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
-import Profile from './components/Profile/Profile';
 import Setting from './components/Setting/Setting';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 let SomeComponent = () => <News/>
@@ -16,11 +17,11 @@ let SomeComponent = () => <News/>
 const App = (props) => {
   return (
     <div className='wrapper'>
-      <Header/>
+      <HeaderContainer/>
       <Navbar/>
       <div className='content'>
         <Route exact path={'/dialogs'} render={() => <DialogsContainer/>}/>
-        <Route exact path={'/profile'} render={() => <Profile />}/>
+        <Route exact path={'/profile/:userId?'} render={() => <ProfileContainer />}/>
         <Route exact path={'/news'} component={SomeComponent}/>
         <Route exact path={'/music'} render={() => <Music/>}/>
         <Route exact path={'/setting'} render={() => <Setting/>}/>

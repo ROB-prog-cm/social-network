@@ -3,11 +3,13 @@ import {combineReducers, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import usersReducer from "./users-reduser";
+import authReducer from "./auth-reduser";
 
 let reducers = combineReducers({
   profilePage: profileReducer,
   dialogsPage: dialogsReducer,
-  usersPage: usersReducer
+  usersPage: usersReducer,
+  auth:authReducer
 });
 
 let store = createStore(reducers);
