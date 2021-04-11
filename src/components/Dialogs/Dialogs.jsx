@@ -9,10 +9,9 @@ const Dialogs = (props) => {
   let state = props.dialogsPage;
 
   let dialogsElement = state.dialogs.map((dialog) => <DialogsItem key={dialog.id} name={dialog.name} id={dialog.id}/>)
-  let messageElement = state.messages.map((item) => <Message  key={item.id}  message={item.message}/>)
+  let messageElement = state.messages.map((item) => <Message key={item.id} message={item.message}/>)
   let newMessageBody = state.newMessageBody;
 
-  
 
   let onSendMessageClick = () => {
     props.sendMessage();
@@ -30,7 +29,7 @@ const Dialogs = (props) => {
       <div className={styles.messages}>
         <div>{messageElement}</div>
         <div>
-          <div><textarea onChange={onNewMessageChange} value={newMessageBody} placeholder="Enter"></textarea></div>
+          <div><textarea onChange={onNewMessageChange} value={newMessageBody} placeholder="Enter"/></div>
           <div>
             <button onClick={onSendMessageClick}>add</button>
           </div>

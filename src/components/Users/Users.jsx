@@ -3,7 +3,6 @@ import styles from "./Users.module.css";
 import photo from "../../assets/images/free-icon-delivery-courier-4108808.svg";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
-import {FollowingProgress} from "../../redux/users-reduser";
 import {usersAPI} from "../../API/api";
 
 

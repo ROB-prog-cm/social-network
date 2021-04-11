@@ -2,19 +2,21 @@ import React from "react";
 import styles from './Users.module.css'
 import {connect} from "react-redux";
 import {
-  follow, getUsersThunkCreator,
+  follow, getUsers,
   setCurrentPage,
   toggleFollowingProgress,
   unfollow
 } from "../../redux/users-reduser";
 import Users from "./Users";
 import {Preloader} from "../Preloader/Preloader";
+import {compose} from "redux";
+import {usersAPI} from "../../API/api";
+import {withAuthRedirect} from "../../Hoc/AuthRedirect";
 
 
 class UsersContainer extends React.Component {
-
   componentDidMount() {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    usersAPI.getUsers(this.props.currentPage, this.props.pageSize);
 
     /*   this.props.toggleIsFetching(true)
 
@@ -27,7 +29,7 @@ class UsersContainer extends React.Component {
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(pageNumber, this.props.pageSize);
+    usersAPI.getUsers(pageNumber, this.props.pageSize);
   }
 
   render() {
@@ -78,10 +80,13 @@ let mapDispatchToProps = (dispatch) => {
 */
 
 
-export default connect(mapStateToProps, {
-  follow,
-  unfollow,
-  setCurrentPage,
-  toggleFollowingProgress,
-  getUsers: getUsersThunkCreator
-})(UsersContainer);
+export default compose(
+/*  withAuthRedirect,*/
+  connect(mapStateToProps, {
+    follow,
+    unfollow,
+    setCurrentPage,
+    toggleFollowingProgress,
+    getUsers
+  })(UsersContainer))
+
