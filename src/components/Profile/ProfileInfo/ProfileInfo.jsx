@@ -10,12 +10,10 @@ import ProfileStatus from "./ProfileStatus";
 const ProfileInfo = (props) => {
 
 /*
-
   if (!props.profile) {
     return <Preloader/>
   }
 */
-
 
   return (
     <div>
@@ -24,7 +22,7 @@ const ProfileInfo = (props) => {
       </div>*/}
       <div className={styles.element}>
         <img className={styles.ava} src={logo2}/>
-        <ProfileStatus/>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
       </div>
     </div>
   )

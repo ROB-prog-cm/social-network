@@ -1,6 +1,6 @@
 import styles from './Dialogs.module.css'
 import React from "react";
-import {sendMessageCreator, updateNewMessageCreator} from "../../redux/dialogs-reducer";
+import {sendMessageCreator} from "../../redux/dialogs-reducer";
 import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import * as Redirect from "react-router-dom";
@@ -15,14 +15,12 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    sendMessage: () => {
-      dispatch(sendMessageCreator())
-    },
-    updateNewMessageBody: (body) => {
-      dispatch(updateNewMessageCreator(body))
+    sendMessage: (newMessageBody) => {
+      dispatch(sendMessageCreator(newMessageBody))
     }
   }
 }
+
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
